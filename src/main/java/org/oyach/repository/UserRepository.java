@@ -20,5 +20,5 @@ public interface UserRepository extends PagingAndSortingRepository<User, Long> {
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     List<User> findByUsername(@Param("username") String username);
 
-    List<User> findByNickeName(@Param("nickname") String nickname);
+    List<User> findByNickName(@Param("nickname") String nickname);
 }
