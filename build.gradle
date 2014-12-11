@@ -30,6 +30,9 @@ war {
 
 repositories {
     mavenCentral()
+    maven {
+        url 'http://repo.spring.io/milestone'
+    }
 }
 
 configurations {
@@ -53,17 +56,29 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-data-rest")
     compile("org.springframework.boot:spring-boot-starter-security")
 
+    compile 'org.springframework.data:spring-data-rest-webmvc:2.2.1.RELEASE',
+            'com.fasterxml.jackson.core:jackson-databind:2.4.4',
+            'com.fasterxml.jackson.core:jackson-annotations:2.4.4',
+            'org.springframework:spring-webmvc:4.1.2.RELEASE',
+            'org.springframework:spring-jdbc:4.1.2.RELEASE',
+            'org.springframework:spring-tx:4.1.2.RELEASE',
+            'org.springframework:spring-orm:4.1.2.RELEASE'
+
 
 
 
     testCompile("com.h2database:h2")
     testCompile("org.springframework.boot:spring-boot-starter-test")
 
+    testCompile 'org.springframework:spring-test:4.1.2.RELEASE'
+
     compile("org.springframework.boot:spring-boot-starter-actuator")
 
     compile 'org.flywaydb:flyway-core:3.1',
             'mysql:mysql-connector-java:5.1.34',
             'org.jolokia:jolokia-core:1.2.3'
+
+    compile 'org.springframework.data:spring-data-jpa:1.7.1.RELEASE'
 
 
     providedRuntime("org.springframework.boot:spring-boot-starter-tomcat")
