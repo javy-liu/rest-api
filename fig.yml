@@ -10,13 +10,10 @@ mysql:
     - /var/mysql
 
 api:
-  build: docker/tomcat
+  build: docker/java
   volumes:
   # 定义挂载路径方便后续操作
-    - /var/weixin:/var/weixin
     - /usr/local/tomcat
-
   links:
-    - redis:redis
     - mysql:mysql
 
