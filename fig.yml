@@ -1,0 +1,22 @@
+
+mysql:
+  build: docker/mysql
+  environment:
+    # 定义 mysql 的 root 的 密码
+    MYSQL_PASS: "root"
+    MYSQL_DATABASE: "rest"
+  volumes:
+  # 定义挂载路径方便后续操作
+    - /var/mysql
+
+api:
+  build: docker/tomcat
+  volumes:
+  # 定义挂载路径方便后续操作
+    - /var/weixin:/var/weixin
+    - /usr/local/tomcat
+
+  links:
+    - redis:redis
+    - mysql:mysql
+
