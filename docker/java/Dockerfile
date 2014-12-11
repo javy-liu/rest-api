@@ -3,8 +3,8 @@ FROM java:8
 
 MAINTAINER zhenyuan.liu@duobei.com
 
-COPY ../../build/libs/*.war /usr/src/app/rest.war
+COPY ./*.war /usr/src/app/rest.war
 WORKDIR /usr/src/app
 
-CMD ["java", "-jar", "/usr/src/app/rest.war"]
+CMD ["java", "-jar", "-Dspring.profiles.active=dev", "/usr/src/app/rest.war"]
 
