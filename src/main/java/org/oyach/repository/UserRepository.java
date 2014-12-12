@@ -1,5 +1,6 @@
 package org.oyach.repository;
 
+import org.oyach.domain.CustomerExcerpt;
 import org.oyach.domain.User;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.repository.query.Param;
@@ -21,4 +22,6 @@ public interface UserRepository extends PagingAndSortingRepository<User, Long> {
     List<User> findByUsername(@Param("username") String username);
 
     List<User> findByNickname(@Param("nickname") String nickname);
+
+
 }

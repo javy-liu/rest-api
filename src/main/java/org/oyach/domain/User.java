@@ -1,6 +1,7 @@
 package org.oyach.domain;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.data.rest.core.annotation.Description;
@@ -24,16 +25,19 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Description("自动产生，不需要填写")
+
     private Long id;
 
+    @Description("必须填写")
     @Length(min = 5, max = 12)
+    @NotNull
     private String username;
 
     @Description("可选")
     private String nickname;
 
     @Description("必须填写")
-    @NotEmpty
+    @NotNull
     private String password;
 
     public Long getId() {
